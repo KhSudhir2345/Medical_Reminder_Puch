@@ -1,0 +1,91 @@
+Metadata-Version: 2.4
+Name: medicine-reminder-mcp-server
+Version: 0.1.0
+Summary: WhatsApp bot for medicine refill reminders and ordering
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: mcp[cli]>=1.12.4
+Requires-Dist: requests>=2.31.0
+Requires-Dist: pillow>=10.0.0
+Requires-Dist: schedule>=1.2.0
+Requires-Dist: python-dateutil>=2.8.2
+Requires-Dist: pyyaml>=6.0
+
+# Medicine Reminder - WhatsApp Medication Refill Reminder & Order Bot
+
+A WhatsApp bot that tracks medicine names, sends timely refill reminders, and enables one-tap reordering.
+
+## Features
+
+- **Medicine Tracking**: Store and manage medication names, dosages, and refill schedules
+- **WhatsApp Reminders**: Automated reminders sent via WhatsApp when refills are due
+- **One-Tap Reordering**: Simple interface to reorder medications with minimal effort
+- **Medication Database**: Local storage of medication information
+- **Customizable Schedules**: Set personalized reminder schedules for each medication
+
+## MCP Server Tools
+
+This MCP server provides the following tools:
+
+1. **add_medicine**: Add a new medicine to track with name, dosage, and refill schedule
+2. **list_medicines**: List all tracked medicines with their details
+3. **set_reminder**: Set or update a reminder for a specific medicine
+4. **order_refill**: Place a refill order for a specific medicine
+5. **get_upcoming_reminders**: Get a list of upcoming medication reminders
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/medicine-reminder-mcp-server.git
+cd medicine-reminder-mcp-server
+
+# Install dependencies
+pip install -e .
+```
+
+## Usage
+
+```bash
+# Start the MCP server
+python main.py
+```
+
+## Example
+
+```python
+# Example of adding a medicine
+result = add_medicine(
+    name="Lisinopril",
+    dosage="10mg",
+    quantity=30,
+    refill_period_days=30
+)
+
+# Example of setting a reminder
+result = set_reminder(
+    medicine_id="med_12345",
+    days_before_empty=5,
+    reminder_time="08:00"
+)
+
+# Example of ordering a refill
+result = order_refill(
+    medicine_id="med_12345"
+)
+```
+
+## Dependencies
+
+This project uses the following free libraries and APIs:
+
+- **mcp**: For MCP server functionality
+- **requests**: For making HTTP requests
+- **pillow**: For image processing
+- **schedule**: For scheduling reminders
+- **python-dateutil**: For date manipulation
+- **pyyaml**: For configuration management
+
+## License
+
+MIT
