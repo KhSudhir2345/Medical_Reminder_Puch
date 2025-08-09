@@ -1,0 +1,84 @@
+{
+  "name": "Medicine Reminder MCP",
+  "description": "MCP server for medicine refill reminders and ordering",
+  "tools": [
+    {
+      "name": "add_medicine",
+      "description": "Add a new medicine to track with refill reminders",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the medicine"
+          },
+          "dosage": {
+            "type": "string",
+            "description": "The dosage of the medicine (e.g., '10mg')"
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "The quantity of pills/units in a refill"
+          },
+          "refill_period_days": {
+            "type": "integer",
+            "description": "How many days a refill typically lasts"
+          }
+        },
+        "required": ["name", "dosage", "quantity", "refill_period_days"]
+      }
+    },
+    {
+      "name": "list_medicines",
+      "description": "List all tracked medicines",
+      "input_schema": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    {
+      "name": "set_reminder",
+      "description": "Set a reminder for a specific medicine",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "medicine_id": {
+            "type": "string",
+            "description": "The ID of the medicine to set a reminder for"
+          },
+          "days_before_empty": {
+            "type": "integer",
+            "description": "How many days before running out to send a reminder"
+          },
+          "reminder_time": {
+            "type": "string",
+            "description": "The time of day to send the reminder (format: 'HH:MM')"
+          }
+        },
+        "required": ["medicine_id", "days_before_empty", "reminder_time"]
+      }
+    },
+    {
+      "name": "order_refill",
+      "description": "Order a refill for a specific medicine",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "medicine_id": {
+            "type": "string",
+            "description": "The ID of the medicine to order a refill for"
+          }
+        },
+        "required": ["medicine_id"]
+      }
+    },
+    {
+      "name": "get_upcoming_reminders",
+      "description": "Get a list of upcoming medicine refill reminders",
+      "input_schema": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  ]
+}

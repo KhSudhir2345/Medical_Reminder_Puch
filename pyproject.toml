@@ -1,0 +1,14 @@
+[project]
+name = "medicine-reminder-mcp-server"
+version = "0.1.0"
+description = "WhatsApp bot for medicine refill reminders and ordering"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.12.4",
+    "requests>=2.31.0",
+    "pillow>=10.0.0",
+    "schedule>=1.2.0",
+    "python-dateutil>=2.8.2",
+    "pyyaml>=6.0",
+]

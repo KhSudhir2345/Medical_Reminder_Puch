@@ -1,0 +1,33 @@
+{
+  "add_medicine": {
+    "tool": "add_medicine",
+    "params": {
+      "name": "Lisinopril",
+      "dosage": "10mg",
+      "quantity": 30,
+      "refill_period_days": 30
+    }
+  },
+  "list_medicines": {
+    "tool": "list_medicines",
+    "params": {}
+  },
+  "set_reminder": {
+    "tool": "set_reminder",
+    "params": {
+      "medicine_id": "MEDICINE_ID_PLACEHOLDER",
+      "days_before_empty": 5,
+      "reminder_time": "09:00"
+    }
+  },
+  "order_refill": {
+    "tool": "order_refill",
+    "params": {
+      "medicine_id": "MEDICINE_ID_PLACEHOLDER"
+    }
+  },
+  "get_upcoming_reminders": {
+    "tool": "get_upcoming_reminders",
+    "params": {}
+  }
+}
